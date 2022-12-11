@@ -45,14 +45,11 @@ namespace _111_1HW5
                 SqlDataAdapter o_A = new SqlDataAdapter("Select * from Users", o_Str);
                 o_Str.Open();
                 SqlCommand o_cmd = new SqlCommand("Insert into Users (Name, Birthday)" + "values(@Name, @DateTime)", o_Str);
-                //o_cmd.Parameters.Add("@Id", SqlDbType.Int);
-                //o_cmd.Parameters["@Id"].Value = 3;
                 o_cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50);
                 o_cmd.Parameters["@Name"].Value = "阿貓阿狗";
                 o_cmd.Parameters.Add("@DateTime", SqlDbType.DateTime);
                 o_cmd.Parameters["@DateTime"].Value = "2000/10/10";
                 o_cmd.ExecuteNonQuery();
-                //o_A.InsertCommand = o_cmd;
                 Response.Redirect("https://localhost:44393/Test.aspx", false);
                 HttpContext.Current.ApplicationInstance.CompleteRequest();
                 o_Str.Close();
